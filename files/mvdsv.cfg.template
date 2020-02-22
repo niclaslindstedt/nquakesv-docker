@@ -1,7 +1,7 @@
 // server information
 hostname                      "$HOSTNAME ($PORT)"
 sv_admininfo                  "$SERVER_ADMIN"
-sv_serverip                   "$ADDRESS"
+sv_serverip                   "$ADDRESS:$PORT"
 qtv_streamport                $PORT
 
 // server settings
