@@ -62,4 +62,4 @@ echo "Initialization complete!"
 echo
 
 cd /nquake/
-./mvdsv -game ktx
+./mvdsv -port $PORT -game ktx
