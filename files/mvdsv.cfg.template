@@ -1,8 +1,8 @@
 // server information
-hostname                      "$HOSTNAME:$LISTEN_PORT"
+hostname                      "$HOSTNAME ($PORT)"
 sv_admininfo                  "$SERVER_ADMIN"
-sv_serverip                   "$LISTEN_IP"
-qtv_streamport                "$QTV_STREAMPORT"
+sv_serverip                   "$ADDRESS"
+qtv_streamport                $PORT
 
 // server settings
 fraglimit                     0         // fraglimit

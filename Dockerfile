@@ -20,7 +20,7 @@ WORKDIR /nquake
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
-  && apt-get install -y curl unzip wget dos2unix gettext \
+  && apt-get install -y curl unzip wget dos2unix gettext dnsutils \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy files
