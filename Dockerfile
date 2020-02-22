@@ -20,7 +20,8 @@ WORKDIR /nquake
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
-  && apt-get install -y curl unzip wget dos2unix gettext
+  && apt-get install -y curl unzip wget dos2unix gettext \
+  && rm -rf /var/lib/apt/lists/*
 
 # Copy files
 COPY files .
@@ -32,7 +33,6 @@ COPY scripts/entrypoint.sh /entrypoint.sh
 RUN find . -type f -print0 | xargs -0 dos2unix -q \
   && find . -type f -exec chmod -f 644 "{}" \; \
   && find . -type d -exec chmod -f 755 "{}" \; \
-  && chmod +x mvdsv ktx/mvdfinish.qws ktx/qwprogs.so \
-  && rm -rf /var/lib/apt/lists/*
+  && chmod +x mvdsv ktx/mvdfinish.qws ktx/qwprogs.so
 
 ENTRYPOINT ["/entrypoint.sh"]
