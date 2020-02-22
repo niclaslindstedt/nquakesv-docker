@@ -17,11 +17,15 @@ echo "Using settings:"
 [ -z "$REPORT_URL" ] && export REPORT_URL="https://badplace.eu"; echo " * REPORT_URL=$REPORT_URL"
 [ -z "$REPORT_KEY" ] && export REPORT_KEY="askmeag"; echo " * REPORT_KEY=$REPORT_KEY"
 echo " * RCON_PASSWORD=$(echo $RCON_PASSWORD | sed 's/./*/g')"
-echo
 
-echo -n "Detecting external IP..."
-export ADDRESS=$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')
-[ -z "$ADDRESS" ] && error "Could not detect external IP" || echo "OK ($ADDRESS)"
+[ -z "$SERVER_IP" ] && {
+  echo
+  echo -n "Detecting external IP..."
+  export ADDRESS=$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')
+  [ -z "$ADDRESS" ] && error "Could not detect external IP" || echo "OK ($ADDRESS)"
+} || {
+  export ADDRESS=$SERVER_IP; echo " * SERVER_IP=$SERVER_IP"
+}
 
 [ ! -f /nquake/id1/pak0.pak ] && {
   echo -n "Downloading necessary files..."
