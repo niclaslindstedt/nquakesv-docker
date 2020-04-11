@@ -66,4 +66,4 @@ echo "Initialization complete!"
 echo
 
 cd /nquake/
-./mvdsv -port $PORT -game ktx
+./mvdsv -port $PORT -game ktx 2>&1 | tee -a logs/mvdsv-$PORT-$(date +%F).log
