@@ -12,7 +12,7 @@ RUN git clone https://github.com/deurk/mvdsv.git && cd mvdsv/build/make \
 
 # Build ktx
 RUN git clone https://github.com/deurk/ktx.git && cd ktx \
-  && ./configure && make dl
+  && ./configure && make build-dlbots
 
 FROM ubuntu:18.04 as run
 ARG DEBIAN_FRONTEND=noninteractive
