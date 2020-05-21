@@ -36,4 +36,8 @@ RUN find . -type f -print0 | xargs -0 dos2unix -q \
   && find . -type d -exec chmod -f 755 "{}" \; \
   && chmod +x mvdsv ktx/mvdfinish.qws ktx/qwprogs.so
 
+VOLUME /nquake/logs
+VOLUME /nquake/media
+VOLUME /nquake/demos
+
 ENTRYPOINT ["/entrypoint.sh"]
