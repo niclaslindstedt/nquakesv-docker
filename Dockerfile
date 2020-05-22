@@ -4,7 +4,7 @@ WORKDIR /build
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
-  && apt-get install -y curl gcc git libc6-dev make pkg-config qstat
+  && apt-get install -y curl gcc git libc6-dev make pkg-config
 
 # Build mvdsv
 RUN git clone https://github.com/deurk/mvdsv.git && cd mvdsv/build/make \
@@ -20,7 +20,7 @@ WORKDIR /nquake
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
-  && apt-get install -y curl unzip wget dos2unix gettext dnsutils \
+  && apt-get install -y curl unzip wget dos2unix gettext dnsutils qstat \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy files
