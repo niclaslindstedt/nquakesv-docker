@@ -51,7 +51,7 @@ set k_exttime                   3               // overtime length in minutes if
 set k_fallbunny                 1               // fallbunny (0 = off (broken ankle), 1 = on (standard qw behaviour))
 set k_disallow_kfjump           1               // kfjump (0 = on, 1 = off)
 set k_disallow_krjump           1               // krjump (0 = on, 1 = off)
-set k_teamoverlay               1               // team overlay (0 = disabled, 1 = enabled)
+set k_teamoverlay               0               // team overlay (0 = disabled, 1 = enabled)
 set k_free_mode                 5               // who can issue XonX/ffa/ctf commands (0 = noone, 1 = admins, 2 = elected admins, 3 = judges, 4 = elected judges, 5 = all)
 
 // spawns
