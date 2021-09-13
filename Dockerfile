@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   && apt-get install -y curl gcc git libc6-dev make pkg-config
 
 # Build mvdsv
-RUN git clone https://github.com/deurk/mvdsv.git && cd mvdsv/build/make \
+RUN git clone https://github.com/deurk/mvdsv.git && cd mvdsv \
   && ./configure && make
 
 # Build ktx
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 
 # Copy files
 COPY files .
-COPY --from=build /build/mvdsv/build/make/mvdsv /nquake/mvdsv
+COPY --from=build /build/mvdsv/mvdsv /nquake/mvdsv
 COPY --from=build /build/ktx/qwprogs.so /nquake/ktx/qwprogs.so
 COPY scripts/healthcheck.sh /healthcheck.sh
 COPY scripts/entrypoint.sh /entrypoint.sh
