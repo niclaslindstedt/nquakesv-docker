@@ -29,8 +29,8 @@ echo " * RCON_PASSWORD=$(echo $RCON_PASSWORD | sed 's/./*/g')"
 
 [ ! -f /nquake/id1/pak0.pak ] && {
   echo -n "Downloading necessary files..."
-  (wget -qO qsw106.zip https://github.com/nQuake/distfiles/raw/master/qsw106.zip \
-    && wget -qO sv-non-gpl.zip https://github.com/nQuake/distfiles/raw/master/sv-non-gpl.zip) || error "Could not download necessary files"
+  (wget -qO qsw106.zip https://github.com/nQuake/distfiles/releases/download/snapshot/qsw106.zip \
+    && wget -qO sv-non-gpl.zip https://github.com/nQuake/distfiles/releases/download/snapshot/sv-non-gpl.zip) || error "Could not download necessary files"
   echo "OK"
 
   echo -n "Extracting files..."
