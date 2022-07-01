@@ -27,6 +27,14 @@ echo " * RCON_PASSWORD=$(echo $RCON_PASSWORD | sed 's/./*/g')"
   export ADDRESS=$SERVER_IP; echo " * SERVER_IP=$SERVER_IP"
 }
 
+[ -z "$SERVER_MEMORY_KBYTES" ] && {
+  export HEAP_SIZE=32768
+  echo
+  echo -n "Will use -heapsize of $HEAP_SIZE kbytes. Increase with SERVER_MEMORY_KBYTES=65536"
+} || {
+  export HEAP_SIZE=$SERVER_MEMORY_KBYTES; echo " *SERVER_MEMORY_KBYTES=$SERVER_MEMORY_KBYTES"
+}
+
 [ ! -f /nquake/id1/pak0.pak ] && {
   echo -n "Downloading necessary files..."
   (wget -qO qsw106.zip https://github.com/nQuake/distfiles/releases/download/snapshot/qsw106.zip \
@@ -66,4 +74,4 @@ echo "Initialization complete!"
 echo
 
 cd /nquake/
-./mvdsv -port $PORT -game ktx
+./mvdsv -port $PORT -game ktx -heapsize $HEAP_SIZE  2>&1 | tee -a logs/mvdsv-$PORT-$(date +%F).log
